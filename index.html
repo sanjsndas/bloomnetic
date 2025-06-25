@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloomnetic Services - Let your garden pull attention</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary: #8BC53F;
+            --secondary: #E84A5F;
+            --accent: #FF847C;
+            --dark: #2A363B;
+            --light: #F9F9F9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .nav-btn {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-btn:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-btn:hover:after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(42, 54, 59, 0.7), rgba(42, 54, 59, 0.7)), 
+                        url('p3.jpeg');
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+        }
+        
+        .floral-bg {
+            background-color: var(--primary);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card {
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .service-card:hover i {
+            color: white;
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tip-card {
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            background-color: rgba(139, 197, 63, 0.1);
+        }
+        
+        .flower-icon {
+            color: var(--primary);
+        }
+        
+        .content-image {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-3xl font-bold text-gray-800">
+                        <span class="text-green-600">Bloom</span><span class="text-pink-600">netic</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-green-600 nav-btn" aria-current="page"tabindex="0" >Home</a>
+                    <a href="privacy.html" class="text-gray-700 hover:text-green-600 nav-btn" tabindex="0">Privacy</a>
+                    <a href="terms.html" class="text-gray-700 hover:text-green-600 nav-btn" tabindex="0">Terms & conditions</a>
+                    <a href="cookies.html" class="text-gray-700 hover:text-green-600 nav-btn" tabindex="0">Cookies</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600 nav-btn" tabindex="0">Contact us</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col mt-4 space-y-2">
+                    <a href="index.html" class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" tabindex="0">Home</a>
+                    <a href="privacy.html" class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" tabindex="0">Privacy</a>
+                    <a href="terms.html" class="px-3 py-2 text-green-600 bg-gray-100 rounded" aria-current="page" tabindex="0">Terms & conditions</a>
+                    <a href="cookies.html" class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" tabindex="0">Cookies</a>
+                    <a href="contact.html" class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" tabindex="0">Contact us</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Let your garden pull attention</h1>
+            <p class="text-xl md:text-2xl mb-8">Transforming ordinary spaces into breathtaking floral masterpieces with our innovative magnetic garden designs</p>
+            <a href="#contact" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full inline-block transition duration-300">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0 px-6">
+                    <img src="p1.png" alt="Beautiful garden" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="w-full md:w-1/2 px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">About Bloomnetic</h2>
+                    <p class="text-gray-700 mb-6">Founded in 2015, Bloomnetic has been revolutionizing garden design with our unique approach that combines horticultural expertise with magnetic aesthetic appeal. Our team of certified landscape architects and master gardeners bring passion and precision to every project.</p>
+                    <p class="text-gray-700 mb-6">We specialize in creating gardens that don't just grow—they captivate. Our signature "pollinator wave" design philosophy ensures your garden will be alive with color, movement, and energy throughout the seasons. We've designed over 500 gardens across the tri-state area, each with its own unique personality and charm.</p>
+                    <div class="flex items-center mb-4">
+                        <div class="mr-4">
+                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700">Award-winning garden designs since 2017, including three "Best in Show" awards at the Chelsea Flower Show</p>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <div class="mr-4">
+                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700">100% organic and sustainable practices certified by the Ecological Landscape Alliance</p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700">Personalized maintenance plans for every client with 24/7 horticultural support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Enhanced Images -->
+    <section class="py-16 floral-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Signature Services</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-white max-w-2xl mx-auto">From initial concept to blooming reality, we offer comprehensive services tailored to your unique space and vision. Each service includes a detailed consultation, custom design, and implementation plan.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-lg overflow-hidden service-card">
+                    <img src="s1.jpeg" alt="Seasonal Garden Design" class="service-image w-full">
+                    <div class="p-8 text-center">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-leaf text-4xl flower-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Seasonal Garden Design</h3>
+                        <p class="text-gray-700 mb-4">Our specialists create year-round visual interest with plants that bloom in succession, ensuring your garden remains vibrant from spring thaw to first frost. We carefully select plants that thrive in your specific microclimate.</p>
+                        <p class="text-gray-700">Includes: 4-season planting plan, bloom calendar, and maintenance schedule</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-lg overflow-hidden service-card">
+                    <img src="s2.jpeg" alt="Eco-Friendly Landscaping" class="service-image w-full">
+                    <div class="p-8 text-center">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-tree text-4xl flower-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Eco-Friendly Landscaping</h3>
+                        <p class="text-gray-700 mb-4">Sustainable solutions that reduce water use by up to 60%, support local ecosystems, and minimize maintenance while maximizing beauty. Our designs incorporate native plants and natural pest control methods.</p>
+                        <p class="text-gray-700">Includes: Water audit, native plant selection, and sustainability report</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-lg overflow-hidden service-card">
+                    <img src="s3.jpeg" alt="Specialty Irrigation" class="service-image w-full">
+                    <div class="p-8 text-center">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-water text-4xl flower-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Specialty Irrigation</h3>
+                        <p class="text-gray-700 mb-4">Smart watering systems tailored to your garden's specific needs, with rain sensors and moisture monitoring for optimal plant health. Our systems can reduce water usage by 30-50% compared to traditional sprinklers.</p>
+                        <p class="text-gray-700">Includes: Soil analysis, water pressure test, and smart controller installation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Services Row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <!-- Service 4 -->
+                <div class="bg-white rounded-lg overflow-hidden service-card">
+                    <img src="s4.jpeg" alt="Garden Lighting" class="service-image w-full">
+                    <div class="p-8 text-center">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-lightbulb text-4xl flower-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Moonlight Gardens</h3>
+                        <p class="text-gray-700 mb-4">Specialized designs featuring white and silver foliage plants that glow in moonlight, along with strategic lighting to create magical evening spaces. Perfect for entertaining or quiet reflection.</p>
+                        <p class="text-gray-700">Includes: Lighting plan, night-blooming plant selection, and installation</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-lg overflow-hidden service-card">
+                    <img src="s5.jpeg" alt="Vertical Gardens" class="service-image w-full">
+                    <div class="p-8 text-center">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-archway text-4xl flower-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Vertical Gardens</h3>
+                        <p class="text-gray-700 mb-4">Innovative vertical garden installations that maximize space and add lush greenery to urban environments. Ideal for balconies, patios, and small yards.</p>
+                        <p class="text-gray-700">Includes: Custom design, plant selection, and installation</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-lg overflow-hidden service-card">
+                    <img src="s6.jpeg" alt="Garden Maintenance" class="service-image w-full">
+                    <div class="p-8 text-center">
+                        <div class="text-green-500 mb-4">
+                            <i class="fas fa-tools text-4xl flower-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Comprehensive Garden Maintenance</h3>
+                        <p class="text-gray-700 mb-4">Regular maintenance services to keep your garden looking its best year-round. Our team handles everything from weeding and pruning to seasonal planting and pest control.</p>
+                        <p class="text-gray-700">Includes: Monthly maintenance schedule, seasonal clean-up, and plant health assessments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultant Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Expert Garden Consultation</h2>
+            
+            <div class="flex flex-wrap mb-12">
+                <div class="w-full md:w-1/2 px-6 mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Why Choose Our Consultants?</h3>
+                    <p class="text-gray-700 mb-6">Our garden consultants bring an average of 15 years experience in landscape architecture and botanical design to each project. Unlike typical landscape companies, our consultants hold advanced degrees in horticulture and environmental design.</p>
+                    <p class="text-gray-700 mb-6">We've developed proprietary assessment tools that evaluate your space's unique microclimate, soil composition, sun exposure, and aesthetic potential to create a truly customized solution.</p>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg mb-6">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">Consultation Process</h4>
+                        <ol class="list-decimal pl-5 text-gray-700 space-y-2">
+                            <li>Initial site assessment (1-2 hours)</li>
+                            <li>Detailed needs analysis questionnaire</li>
+                            <li>Concept development & preliminary sketches</li>
+                            <li>Plant selection & hardscape recommendations</li>
+                            <li>Final design presentation with 3D renderings</li>
+                            <li>Implementation roadmap with phased timeline</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 px-6">
+                    <img src="p2.jpeg" alt="Consultant working" class="rounded-lg shadow-xl w-full h-auto mb-6">
+                    
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Specialized Areas of Expertise</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <i class="fas fa-seedling text-green-500 mr-2"></i>
+                            <span class="font-medium">Native Plant Gardens</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <i class="fas fa-spa text-green-500 mr-2"></i>
+                            <span class="font-medium">Meditation Gardens</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <i class="fas fa-utensils text-green-500 mr-2"></i>
+                            <span class="font-medium">Edible Landscapes</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <i class="fas fa-water text-green-500 mr-2"></i>
+                            <span class="font-medium">Xeriscaping</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <i class="fas fa-home text-green-500 mr-2"></i>
+                            <span class="font-medium">Curb Appeal Design</span>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <i class="fas fa-butterfly text-green-500 mr-2"></i>
+                            <span class="font-medium">Pollinator Gardens</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extensive Content Section -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">Comprehensive Garden Planning Insights</h3>
+                <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">Understanding Your Garden's Ecosystem</h4>
+                    <p class="text-gray-700 mb-4">Creating a successful garden begins with understanding the unique ecosystem of your space. Factors such as soil type, climate, and existing flora all play a crucial role in determining what plants will thrive. Our consultants conduct thorough assessments to ensure that your garden is not only beautiful but also sustainable.</p>
+                    <p class="text-gray-700 mb-4">We emphasize the importance of native plants, which are adapted to local conditions and require less maintenance. By incorporating these plants, you can create a garden that supports local wildlife and reduces the need for chemical fertilizers and pesticides.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">Seasonal Maintenance Tips</h4>
+                    <p class="text-gray-700 mb-4">Maintaining a garden is an ongoing process that varies with the seasons. In spring, focus on planting and fertilizing, while summer requires regular watering and pest control. Fall is the time for pruning and preparing your garden for winter, and winter can be used for planning and design adjustments.</p>
+                    <p class="text-gray-700 mb-4">Our team provides seasonal checklists to help you stay on track and ensure your garden remains healthy and vibrant throughout the year.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-8 mb-8">
+                    <h4 class="text-xl font-bold mb-4 text-gray-800">Creating a Pollinator-Friendly Space</h4>
+                    <p class="text-gray-700 mb-4">Pollinators are essential for the health of our ecosystems. By designing gardens that attract bees, butterflies, and other pollinators, you can contribute to biodiversity and enhance the beauty of your space. We recommend planting a variety of flowering plants that bloom at different times to provide a continuous food source.</p>
+                    <p class="text-gray-700 mb-4">Incorporating native plants and avoiding pesticides are key strategies in creating a pollinator-friendly garden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Client Feedback</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">"Bloomnetic transformed my backyard into a stunning oasis. Their attention to detail and creativity exceeded my expectations!"</p>
+                    <p class="font-bold text-gray-800">- Sarah J.</p>
+                </div>
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">"The team at Bloomnetic was professional and knowledgeable. I loved their approach to sustainable gardening!"</p>
+                    <p class="font-bold text-gray-800">- Mark T.</p>
+                </div>
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">"I appreciated the personalized service and the beautiful design they created for my front yard. Highly recommend!"</p>
+                    <p class="font-bold text-gray-800">- Emily R.</p>
+                </div>
+                <div class="testimonial-card p-6 rounded-lg">
+                    <p class="text-gray-700 mb-4">"Bloomnetic's consultants are true experts. They helped me choose the right plants for my garden's conditions!"</p>
+                    <p class="font-bold text-gray-800">- John D.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Gardening Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Water Wisely</h3>
+                    <p class="text-gray-700">Water your garden early in the morning or late in the evening to minimize evaporation. Use drip irrigation systems for efficiency.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Mulch for Moisture</h3>
+                    <p class="text-gray-700">Applying a layer of mulch helps retain soil moisture, suppress weeds, and regulate soil temperature.</p>
+                </div>
+                <div class="tip-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Rotate Your Crops</h3>
+                    <p class="text-gray-700">Practice crop rotation to prevent soil depletion and reduce pest and disease problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Disclaimer</h2>
+            <p class="text-gray-700 max-w-2xl mx-auto text-center">The information provided on this website is for general informational purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
+        </div>
+    </section>
+
+    <!-- Customer Satisfaction Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Customer Satisfaction Guarantee</h2>
+            <p class="text-gray-700 max-w-2xl mx-auto text-center">At Bloomnetic, we are committed to ensuring your complete satisfaction. If you are not happy with our services, we will work with you to make it right. Your garden is our passion, and we strive to exceed your expectations every step of the way.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800">Contact Us</h2>
+            <p class="text-gray-700 text-center mb-4">For inquiries, consultations, or to schedule a visit, please reach out to us:</p>
+            <p class="text-gray-700 text-center mb-4">Address: 19 Washington Square N, New York, NY 10011, USA</p>
+            <p class="text-gray-700 text-center mb-4">Email: info@bloomnetic.com</p>
+            <p class="text-gray-700 text-center mb-4">Phone: (123) 456-7890</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-700">© 2023 Bloomnetic. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
